@@ -1,5 +1,7 @@
 # My Arch Linux Configuration and Dotfiles
 This repository contains my personal configuration files for Arch Linux.
+
+Visit [SolDoesTech's configurations](https://github.com/SolDoesTech) I believe I have perfected that with my additions and changes.
 ## Screenshots
 ![Screenshot 1](./ss1.png)
 ## Hyprland
