@@ -1,5 +1,7 @@
 # My Arch Linux Configuration and Dotfiles
 This repository contains my personal configuration files for Arch Linux.
+## Screenshots
+![Screenshot 1](./ss1.png)
 ## Hyprland
 I personally like using a wayland compositor, so I use [Hyprland](https://hyprland.org/) as my compositor. It also has amazing animations.
 ## Configuration File Locations
