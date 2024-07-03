@@ -1,0 +1,61 @@
+### APPS ###
+# Terminal - alacritty,terminator
+super + {_, shift + }t
+	{alacritty,terminator}
+# Browser - chromium,firefox
+super + {_, shift + }b
+    {chromium,firefox}
+# Code Editor - vscode,sublime text
+super + {_, shift + }c
+    {code,subl}
+# Note Editor - obsidian,nvim
+super + {_, shift + }q
+    {obsidian,alacritty -e nvim}
+# File Manager - nautilus,thunar
+super + {_, shift + }e
+    {nautilus -w,thunar}
+# Whatsapp
+super + w
+    flatpak run io.github.mimbrero.WhatsAppDesktop
+# Discord
+super + d
+    discord
+
+
+### GENERAL ###
+# Close and Kill
+super + {_, shift + }x
+    bspc node -{c,k}
+# Floating and Fullscreen
+super + {_, shift + }f
+    bspc node -t {'~fullscreen','~floating'}
+# Lockscreen
+super + l
+    slock
+
+
+# program launcher
+Menu
+	rofi -no-lazy-grab -show drun -modi drun
+
+Print
+    flameshot gui
+
+# Reload sxhkd
+super + Escape
+	pkill -USR1 -x sxhkd
+
+# Quit and restart
+super + alt + {q,r}
+	bspc {quit,wm -r}
+	
+# Workspaces
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '{1-9,10}'
+super + {_,shift + }quotedbl
+    bspc {desktop -f,node -d} 'terminal'
+
+# Move focus
+super + {_,shift + }{Left,Down,Up,Right}
+	bspc node -{f,s} {west,south,north,east}
+	
