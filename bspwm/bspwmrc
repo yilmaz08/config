@@ -1,16 +1,35 @@
 #! /bin/sh
 
-export GTK_THEME=Adwaita:dark
+### MONITOR ###
+MONITOR_NAME="eDP-1"
+EXTERNAL_MONITOR_NAME="HDMI-1-0"
 
-feh --bg-fill /home/yilmaz/Media/Pictures/Wallpapers/v2-background-dark.jpg &
-setxkbmap tr &
-pgrep -x sxhkd > /dev/null || sxhkd &
-polybar example &
-flameshot &
-picom &
+STATUS_EXTERNAL_MONITOR=$(xrandr --query | grep $EXTERNAL_MONITOR_NAME)
+if [[ ! $STATUS_EXTERNAL_MONITOR == *disconnected* ]]; then
+    xrandr --output $MONITOR_NAME --primary --mode 1920x1080 --output $EXTERNAL_MONITOR_NAME --mode 1920x1080 --rotate normal --left-of $MONITOR_NAME
+else
+    xrandr --output $EXTERNAL_MONITOR_NAME --off
+fi
 
-#bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+### WORKSPACES ###
+bspc monitor $MONITOR_NAME -d t 1 2 3 4 5 6 7 8 9 10
+if [[ ! $STATUS_EXTERNAL_MONITOR == *disconnected* ]]; then
+	bspc monitor $EXTERNAL_MONITOR_NAME -d m
+fi
 
+### STARTUP ###
+export GTK_THEME=Adwaita:dark                                                       # Dark theme
+
+xsetroot -cursor_name left_ptr &                                                    # Cursor
+feh --bg-fill /home/yilmaz/Media/Pictures/Wallpapers/v2-background-dark.jpg &       # Background
+setxkbmap tr &                                                                      # Keymap
+pgrep -x sxhkd > /dev/null || sxhkd &                                               # Shortcuts
+polybar example &                                                                   # Polybar
+# flameshot &                                                                       # Screenshot system tray icon
+picom &                                                                             # 
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &                         # Polkit
+
+### CONFIG ###
 bspc config focus_follows_pointer true
 bspc config border_width         2
 bspc config window_gap           12
@@ -24,23 +43,3 @@ bspc config gapless_monocle      true
 bspc config focused_border_color     "#26F0F1"
 bspc config normal_border_color      "#202A25"
 
-MONITOR_NAME="eDP-1"
-EXTERNAL_MONITOR_NAME="HDMI-1-0"
-
-STATUS_EXTERNAL_MONITOR=$(xrandr --query | grep $EXTERNAL_MONITOR_NAME)
-if [[ ! $STATUS_EXTERNAL_MONITOR == *disconnected* ]]; then
-    xrandr --output $MONITOR_NAME --primary --mode 1920x1080 --output $EXTERNAL_MONITOR_NAME --mode 1920x1080 --rotate normal --left-of $MONITOR_NAME
-else
-    xrandr --output $EXTERNAL_MONITOR_NAME --off
-fi
-
-if [[ ! $STATUS_EXTERNAL_MONITOR == *disconnected* ]]; then
-	bspc monitor $MONITOR_NAME -d 1 2 3 4 5 6 7 8 9 10 terminal
-	bspc monitor $EXTERNAL_MONITOR_NAME -d m
-else
-	bspc monitor -d 1 2 3 4 5 6 7 8 9 10 terminal
-fi
-
-
-bspc rule -a alacritty desktop=term follow=off -o
-alacritty &

@@ -4,42 +4,40 @@ super + {_, shift + }t
 	{alacritty,terminator}
 # Browser - chromium,firefox
 super + {_, shift + }b
-    {chromium,firefox}
+	{chromium,firefox}
 # Code Editor - vscode,sublime text
 super + {_, shift + }c
-    {code,subl}
+	{code,subl}
 # Note Editor - obsidian,nvim
 super + {_, shift + }q
-    {obsidian,alacritty -e nvim}
+	{obsidian,alacritty -e nvim}
 # File Manager - nautilus,thunar
 super + {_, shift + }e
-    {nautilus -w,thunar}
+	{nautilus -w,thunar}
 # Whatsapp
 super + w
-    flatpak run io.github.mimbrero.WhatsAppDesktop
+	flatpak run io.github.mimbrero.WhatsAppDesktop
 # Discord
 super + d
-    discord
-
+	discord
 
 ### GENERAL ###
 # Close and Kill
 super + {_, shift + }x
-    bspc node -{c,k}
+	bspc node -{c,k}
 # Floating and Fullscreen
 super + {_, shift + }f
-    bspc node -t {'~fullscreen','~floating'}
+   	bspc node -t {'~fullscreen','~floating'}
 # Lockscreen
 super + l
-    slock
+	slock
 
-
-# program launcher
+# Rofi
 Menu
 	rofi -no-lazy-grab -show drun -modi drun
-
+# Screenshot
 Print
-    flameshot gui
+	flameshot gui
 
 # Reload sxhkd
 super + Escape
@@ -50,12 +48,32 @@ super + alt + {q,r}
 	bspc {quit,wm -r}
 	
 # Workspaces
-super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '{1-9,10}'
-super + {_,shift + }quotedbl
-    bspc {desktop -f,node -d} 'terminal'
+super + {_,shift + }{1-9,0,quotedbl}
+	bspc {desktop -f,node -d} '{1-9,10,t}'
 
 # Move focus
 super + {_,shift + }{Left,Down,Up,Right}
 	bspc node -{f,s} {west,south,north,east}
-	
+
+# Brightness
+XF86MonBrightness{Up,Down}  
+	brightnessctl s 10%{+,-}
+
+# Audio
+XF86Audio{Raise,Lower}Volume  
+	pamixer --allow-boost {-i,-d}10  
+XF86AudioMute  
+	pamixer -t
+
+# Player
+XF86Audio{Pause,Play,Next,Prev}
+	playerctl {pause,play-pause,next,previous}
+
+# Mouse Player Controls
+super + {button2,button8,button9}
+	playerctl {play-pause,previous,next}
+
+# Change KB Layout
+#super + {button1,button3}
+#    setxkbmap {tr,us}
+
