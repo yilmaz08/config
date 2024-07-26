@@ -18,15 +18,18 @@ if [[ ! $STATUS_EXTERNAL_MONITOR == *disconnected* ]]; then
 fi
 
 ### STARTUP ###
-export GTK_THEME=Adwaita:dark                                                       # Dark theme
+# export GTK_THEME=Adwaita:dark                                                       # Dark theme
 
 xsetroot -cursor_name left_ptr &                                                    # Cursor
-feh --bg-fill /home/yilmaz/Media/Pictures/Wallpapers/v2-background-dark.jpg &       # Background
+feh --bg-fill /home/ayilmaz/Media/Pictures/Wallpapers/currentwallpaper &       # Background
 setxkbmap tr &                                                                      # Keymap
 pgrep -x sxhkd > /dev/null || sxhkd &                                               # Shortcuts
 polybar example &                                                                   # Polybar
-# flameshot &                                                                       # Screenshot system tray icon
-picom &                                                                             # 
+flameshot &                                                                         # Screenshot system tray icon
+# picom &                                                                             # 
+picom --fade-in-step=1 --fade-out-step=1 --fade-delta=0 --no-fading-openclose &
+# kdeconnectd &
+# kdeconnect-indicator &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &                         # Polkit
 
 ### CONFIG ###

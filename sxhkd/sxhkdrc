@@ -2,24 +2,31 @@
 # Terminal - alacritty,terminator
 super + {_, shift + }t
 	{alacritty,terminator}
-# Browser - chromium,firefox
+# Browser - chromium,chromium incognito
 super + {_, shift + }b
-	{chromium,firefox}
+	{chromium,chromium --incognito}
 # Code Editor - vscode,sublime text
 super + {_, shift + }c
 	{code,subl}
 # Note Editor - obsidian,nvim
 super + {_, shift + }q
-	{obsidian,alacritty -e nvim}
+	{logseq,alacritty -e nvim}
 # File Manager - nautilus,thunar
 super + {_, shift + }e
 	{nautilus -w,thunar}
 # Whatsapp
-super + w
-	flatpak run io.github.mimbrero.WhatsAppDesktop
+super + {_, shift + }w
+	{flatpak run io.github.mimbrero.WhatsAppDesktop, telegram-desktop}
 # Discord
-super + d
-	discord
+super + {_, shift + }d
+	{discord, webcord}
+# Video Player
+super + {_, shift + }v
+    {mpv --player-operation-mode=pseudo-gui, vlc}
+super + {_,shift +}Return
+	{bspwm, bspc rule -a \* -o state=floating sticky=on layer=above rectangle=720x360+600+26 && bspwm}
+
+
 
 ### GENERAL ###
 # Close and Kill
@@ -30,7 +37,7 @@ super + {_, shift + }f
    	bspc node -t {'~fullscreen','~floating'}
 # Lockscreen
 super + l
-	slock
+	XSECURELOCK_NO_COMPOSITE=1 xsecurelock
 
 # Rofi
 Menu
@@ -72,8 +79,3 @@ XF86Audio{Pause,Play,Next,Prev}
 # Mouse Player Controls
 super + {button2,button8,button9}
 	playerctl {play-pause,previous,next}
-
-# Change KB Layout
-#super + {button1,button3}
-#    setxkbmap {tr,us}
-
