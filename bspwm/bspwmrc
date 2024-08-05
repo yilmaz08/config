@@ -19,12 +19,15 @@ fi
 
 ### STARTUP ###
 # export GTK_THEME=Adwaita:dark                                                       # Dark theme
+export EDITOR=nvim
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/home/ayilmaz/.cargo/bin
 
 xsetroot -cursor_name left_ptr &                                                    # Cursor
 feh --bg-fill /home/ayilmaz/Media/Pictures/Wallpapers/currentwallpaper &       # Background
 setxkbmap tr &                                                                      # Keymap
 pgrep -x sxhkd > /dev/null || sxhkd &                                               # Shortcuts
-polybar example &                                                                   # Polybar
+polybar bottom &                                                                   # Polybar Top Bar
+polybar top &                                                                       # Polybar Bottom Bar
 flameshot &                                                                         # Screenshot system tray icon
 # picom &                                                                             # 
 picom --fade-in-step=1 --fade-out-step=1 --fade-delta=0 --no-fading-openclose &
@@ -35,7 +38,7 @@ picom --fade-in-step=1 --fade-out-step=1 --fade-delta=0 --no-fading-openclose &
 ### CONFIG ###
 bspc config focus_follows_pointer true
 bspc config border_width         2
-bspc config window_gap           12
+bspc config window_gap           4
 bspc config top_padding          0
 bspc config bottom_padding       0
 
