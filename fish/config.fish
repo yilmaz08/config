@@ -10,8 +10,8 @@ alias clr="clear"
 alias cls="clear"
 
 # fetch
-alias fetch="fastfetch -c examples/13"
 alias ff="fastfetch"
+alias fetch="ff -c examples/13"
 
 # ls
 alias ls="/usr/bin/exa"
@@ -20,6 +20,7 @@ alias la="ls -la"
 
 alias r="ranger"
 alias e="nvim"
+alias se="sudo nvim"
 
 # aur helper
 alias aur="yay"
@@ -45,10 +46,21 @@ alias senable="sudo systemctl enable"
 alias sdisable="sudo systemctl disable"
 alias sstatus="sudo systemctl status"
 
+# bluetoothctl
+alias btrust="bluetoothctl trust"
+alias bpair="bluetoothctl pair"
+alias bconn="bluetoothctl connect"
+alias bdisconn="bluetoothctl disconnect"
+alias boff="bluetoothctl power off"
+alias bon="bluetoothctl power on"
 
 set fish_greeting
 if status is-interactive
     # Commands to run in interactive sessions can go here
+end
+
+function fish_title
+    echo (fish_prompt_pwd_dir_length=0 prompt_pwd);
 end
 
 # pwd based on the value of _ZO_RESOLVE_SYMLINKS.
@@ -146,6 +158,22 @@ alias cd=__zoxide_z
 abbr --erase zi &>/dev/null
 alias zi=__zoxide_zi
 alias cdi=__zoxide_zi
+
+function ranger
+ 	set tempfile (mktemp -t tmp.XXXXXX)
+	command ranger --choosedir=$tempfile $argv
+	set return_value $status
+
+	if test -s $tempfile
+		set ranger_pwd (cat $tempfile)
+		if test -n $ranger_pwd -a -d $ranger_pwd
+			builtin cd -- $ranger_pwd
+		end
+	end
+
+	command rm -f -- $tempfile
+	return $return_value
+end
 
 zoxide init fish | source
 starship init fish | source
