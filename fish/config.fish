@@ -1,5 +1,8 @@
 set fish_greeting
 if status is-interactive
+  #if [ "$ZELLIJ" != "0" ]
+  #  exec zellij
+  #end
     # Commands to run in interactive sessions can go here
 end
 

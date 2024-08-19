@@ -18,9 +18,9 @@ if [[ ! $STATUS_EXTERNAL_MONITOR == *disconnected* ]]; then
 fi
 
 ### STARTUP ###
-# export GTK_THEME=Adwaita:dark                                                       # Dark theme
+export GTK_THEME=Adwaita:dark                                                       # Dark theme
 export EDITOR=nvim
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/home/ayilmaz/.cargo/bin
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/home/ayilmaz/.cargo/bin:/home/linuxbrew/.linuxbrew/bin
 
 xsetroot -cursor_name left_ptr &                                                    # Cursor
 feh --bg-fill /home/ayilmaz/Media/Pictures/Wallpapers/currentwallpaper &       # Background
@@ -29,11 +29,13 @@ pgrep -x sxhkd > /dev/null || sxhkd &                                           
 polybar bottom &                                                                   # Polybar Top Bar
 polybar top &                                                                       # Polybar Bottom Bar
 flameshot &                                                                         # Screenshot system tray icon
+clipmenud &
 # picom &                                                                             # 
 picom --fade-in-step=1 --fade-out-step=1 --fade-delta=0 --no-fading-openclose &
 # kdeconnectd &
 # kdeconnect-indicator &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &                         # Polkit
+#kwalletd6 &
 
 ### CONFIG ###
 bspc config focus_follows_pointer true

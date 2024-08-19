@@ -7,13 +7,13 @@ super + {_, shift + }b
 	{chromium,chromium --incognito}
 # Code Editor - vscode,sublime text
 super + {_, shift + }c
-	{code,subl}
+	{code,zeditor}
 # Note Editor - obsidian,nvim
 super + {_, shift + }q
-	{logseq,alacritty -e nvim}
+	{alacritty -e nvim,thunderbird}
 # File Manager - nautilus,thunar
 super + {_, shift + }e
-	{nautilus -w,thunar}
+	{alacritty -e ranger,nautilus -w}
 # Whatsapp
 super + {_, shift + }w
 	{flatpak run io.github.mimbrero.WhatsAppDesktop, telegram-desktop}
@@ -22,7 +22,9 @@ super + {_, shift + }d
 	{discord, webcord}
 # Video Player
 super + {_, shift + }v
-    {mpv --player-operation-mode=pseudo-gui, vlc}
+    {mpv --player-operation-mode=pseudo-gui --keep-open, vlc}
+super + {_, shift + }a
+    {CM_LAUNCHER=rofi clipmenu, alacritty}
 super + {_,shift +}Return
 	{bspwm, bspc rule -a \* -o state=floating sticky=on layer=above rectangle=720x360+600+26 && bspwm}
 
@@ -37,7 +39,7 @@ super + {_, shift + }f
    	bspc node -t {'~fullscreen','~floating'}
 # Lockscreen
 super + l
-	XSECURELOCK_NO_COMPOSITE=1 xsecurelock
+	slock
 
 # Rofi
 Menu
@@ -79,3 +81,6 @@ XF86Audio{Pause,Play,Next,Prev}
 # Mouse Player Controls
 super + {button2,button8,button9}
 	playerctl {play-pause,previous,next}
+
+~button2
+    ;echo -n | xclip -in
