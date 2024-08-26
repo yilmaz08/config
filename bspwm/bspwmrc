@@ -12,7 +12,7 @@ else
 fi
 
 ### WORKSPACES ###
-bspc monitor $MONITOR_NAME -d t 1 2 3 4 5 6 7 8 9 10
+bspc monitor $MONITOR_NAME -d 1 2 3 4 5 6 7 8 9 10
 if [[ ! $STATUS_EXTERNAL_MONITOR == *disconnected* ]]; then
 	bspc monitor $EXTERNAL_MONITOR_NAME -d m
 fi
@@ -30,6 +30,7 @@ polybar bottom &                                                                
 polybar top &                                                                       # Polybar Bottom Bar
 flameshot &                                                                         # Screenshot system tray icon
 clipmenud &
+# picom &                                                                             # 
 picom --fade-in-step=1 --fade-out-step=1 --fade-delta=0 --no-fading-openclose &
 # kdeconnectd &
 # kdeconnect-indicator &
