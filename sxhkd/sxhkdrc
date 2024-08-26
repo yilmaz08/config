@@ -1,32 +1,28 @@
 ### APPS ###
-# Terminal - alacritty,terminator
+# Terminal - alacritty fish, alacritty zellij
 super + {_, shift + }t
-	{alacritty,terminator}
+	{alacritty -e fish,alacritty}
 # Browser - chromium,chromium incognito
 super + {_, shift + }b
 	{chromium,chromium --incognito}
-# Code Editor - vscode,sublime text
+# Code Editor - nvim, vscode
 super + {_, shift + }c
-	{code,zeditor}
-# Note Editor - obsidian,nvim
+	{alacritty -e nvim,code}
+# zellij, thunderbird
 super + {_, shift + }q
-	{alacritty -e nvim,thunderbird}
-# File Manager - nautilus,thunar
+	{alacritty,thunderbird}
+# File Manager - ranger,nautilus
 super + {_, shift + }e
 	{alacritty -e ranger,nautilus -w}
-# Whatsapp
+# Communication
 super + {_, shift + }w
-	{flatpak run io.github.mimbrero.WhatsAppDesktop, telegram-desktop}
+	{ferdium, telegram-desktop}
 # Discord
 super + {_, shift + }d
 	{discord, webcord}
-# Video Player
+# mpv, clipboard
 super + {_, shift + }v
-    {mpv --player-operation-mode=pseudo-gui --keep-open, vlc}
-super + {_, shift + }a
-    {CM_LAUNCHER=rofi clipmenu, alacritty}
-super + {_,shift +}Return
-	{bspwm, bspc rule -a \* -o state=floating sticky=on layer=above rectangle=720x360+600+26 && bspwm}
+    {mpv --player-operation-mode=pseudo-gui --keep-open, CM_LAUNCHER=rofi clipmenu}
 
 
 

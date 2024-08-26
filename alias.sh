@@ -60,7 +60,6 @@ alias bdev="bluetoothctl devices"
 alias bctl="bluetoothctl"
 
 # docker
-alias docker="sudo docker"
 alias drun="docker run"
 alias dattach="docker attach"
 alias dpull="docker pull"

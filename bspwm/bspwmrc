@@ -23,14 +23,13 @@ export EDITOR=nvim
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/home/ayilmaz/.cargo/bin:/home/linuxbrew/.linuxbrew/bin
 
 xsetroot -cursor_name left_ptr &                                                    # Cursor
-feh --bg-fill /home/ayilmaz/Media/Pictures/Wallpapers/currentwallpaper &       # Background
+feh --no-fehbg --bg-max /home/ayilmaz/Media/Pictures/Wallpapers/currentwallpaper &       # Background
 setxkbmap tr &                                                                      # Keymap
 pgrep -x sxhkd > /dev/null || sxhkd &                                               # Shortcuts
 polybar bottom &                                                                   # Polybar Top Bar
 polybar top &                                                                       # Polybar Bottom Bar
 flameshot &                                                                         # Screenshot system tray icon
 clipmenud &
-# picom &                                                                             # 
 picom --fade-in-step=1 --fade-out-step=1 --fade-delta=0 --no-fading-openclose &
 # kdeconnectd &
 # kdeconnect-indicator &
