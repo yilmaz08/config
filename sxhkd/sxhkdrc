@@ -1,26 +1,18 @@
 ### APPS ###
-# Terminal - alacritty fish, alacritty zellij
 super + {_, shift + }t
 	{alacritty -e fish,alacritty}
-# Browser - chromium,chromium incognito
 super + {_, shift + }b
 	{chromium,chromium --incognito}
-# Code Editor - nvim, vscode
 super + {_, shift + }c
-	{alacritty -e nvim,code}
-# zellij, thunderbird
+	{alacritty,alacritty -e nvim}
 super + {_, shift + }q
-	{alacritty,thunderbird}
-# File Manager - ranger,nautilus
+	{thunderbird,thunderbird}
 super + {_, shift + }e
-	{alacritty -e ranger,nautilus -w}
-# Communication
+	{nautilus -w,alacritty -e ranger}
 super + {_, shift + }w
-	{ferdium, telegram-desktop}
-# Discord
+	{whatsdesk, telegram-desktop}
 super + {_, shift + }d
-	{discord, webcord}
-# mpv, clipboard
+	{discord,ferdium}
 super + {_, shift + }v
     {mpv --player-operation-mode=pseudo-gui --keep-open, CM_LAUNCHER=rofi clipmenu}
 

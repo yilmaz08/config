@@ -2,7 +2,7 @@ alias py="python3"
 alias pong="ping archlinux.org"
 alias trm="trash-put"
 
-alias adamimprojevarmiya="cd ~/Projects/"
+alias adamimprojevarmiya="cd ~/Projects/; ls -l"
 
 # clear
 alias c="clear"
