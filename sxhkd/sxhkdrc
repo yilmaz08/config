@@ -1,10 +1,10 @@
 ### APPS ###
 super + {_, shift + }t
-	{alacritty -e fish,alacritty}
+	{alacritty,alacritty}
 super + {_, shift + }b
 	{chromium,chromium --incognito}
 super + {_, shift + }c
-	{alacritty,alacritty -e nvim}
+	{alacritty -e nvim,alacritty -e nvim}
 super + {_, shift + }q
 	{thunderbird,thunderbird}
 super + {_, shift + }e
