@@ -1,1 +1,0 @@
-notify-send "toggle switch"

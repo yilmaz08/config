@@ -1,4 +1,5 @@
 #!/bin/bash
+
 if [ $(pamixer --default-source --get-mute) == "true" ]
 then
     echo " Muted" # muted

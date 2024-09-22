@@ -1,3 +1,5 @@
+#!/bin/bash
+
 MAIN_KBL="tr"
 SECOND_KBL="us"
 
