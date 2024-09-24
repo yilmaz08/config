@@ -1,6 +1,8 @@
 alias py="python3"
 alias pong="ping archlinux.org"
 alias trm="trash-put"
+alias lg="lazygit"
+alias cdtemp="cd \$(mktemp -d)"
 
 alias adamimprojevarmiya="cd ~/Projects/; ls -l"
 
@@ -26,7 +28,7 @@ alias se="sudo nvim"
 alias sr="sudo ranger"
 
 # aur helper
-alias aur="yay" # change this alias to affect all
+alias aur="paru" # change this alias to affect all
 alias S="aur -S"
 alias Ss="aur -Ss"
 alias Si="aur -Si"
