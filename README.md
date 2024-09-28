@@ -8,7 +8,6 @@ What I use:
 Linux Distro         : Arch Linux
 Window Manager       : bspwm (X11)
 Terminal Emulator    : alacritty
-Terminal Multiplexer : zellij
 Editor               : neovim
 Shell                : fish
 ```

@@ -4,11 +4,11 @@ super + {_, shift + }t
 super + {_, shift + }b
 	{chromium,chromium --incognito}
 super + {_, shift + }c
-	{alacritty -e nvim,alacritty -e nvim}
+	{alacritty -e nvim ~,alacritty -e nvim ~}
 super + {_, shift + }q
 	{thunderbird,thunderbird}
 super + {_, shift + }e
-	{nautilus -w,alacritty -e ranger}
+	{alacritty -e ranger,alacritty -e ranger}
 super + {_, shift + }w
 	{whatsdesk, telegram-desktop}
 super + {_, shift + }d

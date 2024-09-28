@@ -1,8 +1,8 @@
+export GPG_TTY=$(tty)
+
 set fish_greeting
+
 if status is-interactive
-  #if [ "$ZELLIJ" != "0" ]
-  #  exec zellij
-  #end
     # Commands to run in interactive sessions can go here
 end
 
@@ -10,13 +10,10 @@ function fish_title
     echo (fish_prompt_pwd_dir_length=0 prompt_pwd);
 end
 
-# pwd based on the value of _ZO_RESOLVE_SYMLINKS.
 function __zoxide_pwd
     builtin pwd -L
 end
 
-# A copy of fish's internal cd function. This makes it possible to use
-# `alias cd=z` without causing an infinite loop.
 if ! builtin functions --query __zoxide_cd_internal
     if builtin functions --query cd
         builtin functions --copy cd __zoxide_cd_internal
@@ -25,33 +22,20 @@ if ! builtin functions --query __zoxide_cd_internal
     end
 end
 
-# cd + custom logic based on the value of _ZO_ECHO.
 function __zoxide_cd
     __zoxide_cd_internal $argv
 end
 
-# =============================================================================
-#
-# Hook configuration for zoxide.
-#
-
-# Initialize hook to add new entries to the database.
 function __zoxide_hook --on-variable PWD
     test -z "$fish_private_mode"
     and command zoxide add -- (__zoxide_pwd)
 end
-
-# =============================================================================
-#
-# When using zoxide with --no-cmd, alias these internal functions as desired.
-#
 
 if test -z $__zoxide_z_prefix
     set __zoxide_z_prefix 'z!'
 end
 set __zoxide_z_prefix_regex ^(string escape --style=regex $__zoxide_z_prefix)
 
-# Jump to a directory using only keywords.
 function __zoxide_z
     set -l argc (count $argv)
     if test $argc -eq 0
@@ -68,7 +52,6 @@ function __zoxide_z
     end
 end
 
-# Completions.
 function __zoxide_z_complete
     set -l tokens (commandline --current-process --tokenize)
     set -l curr_tokens (commandline --cut-at-cursor --current-process --tokenize)
@@ -87,16 +70,10 @@ function __zoxide_z_complete
 end
 complete --command __zoxide_z --no-files --arguments '(__zoxide_z_complete)'
 
-# Jump to a directory using interactive search.
 function __zoxide_zi
     set -l result (command zoxide query --interactive -- $argv)
     and __zoxide_cd $result
 end
-
-# =============================================================================
-#
-# Commands for zoxide. Disable these using --no-cmd.
-#
 
 abbr --erase z &>/dev/null
 alias z=__zoxide_z
