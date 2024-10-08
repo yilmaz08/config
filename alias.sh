@@ -20,11 +20,12 @@ alias fetch="ff -c examples/13"
 alias ls="/usr/bin/exa"
 alias l="ls -l"
 alias la="ls -la"
+alias tree="ls --tree"
 
 # tools
 alias r="ranger"
 alias e="nvim"
-alias se="sudo nvim"
+alias se="sudo -E -s nvim"
 alias sr="sudo ranger"
 
 # aur helper

@@ -2,9 +2,9 @@
 super + {_, shift + }t
 	{alacritty,alacritty}
 super + {_, shift + }b
-	{chromium,chromium --incognito}
+	{zen-browser,chromium --incognito}
 super + {_, shift + }c
-	{alacritty -e nvim ~,alacritty -e nvim ~}
+	alacritty -T "The Superior Text Editor" -e nvim ~
 super + {_, shift + }q
 	{thunderbird,thunderbird}
 super + {_, shift + }e
@@ -47,6 +47,11 @@ super + alt + {q,r}
 # Workspaces
 super + {_,shift + }{1-9,0,quotedbl}
 	bspc {desktop -f,node -d} '{1-9,10,t}'
+
+super + {_,shift + }Tab
+	bspc desktop -f {next,prev}
+super + alt + {_,shift + }Tab
+	bspc node -d {next,prev}
 
 # Move focus
 super + {_,shift + }{Left,Down,Up,Right}
