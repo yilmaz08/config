@@ -23,6 +23,8 @@ export EDITOR=nvim
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/home/ayilmaz/.cargo/bin:/home/linuxbrew/.linuxbrew/bin
 
 ### STARTUP ###
+xset s off																			# disable screen saver
+xset -dpms																			# disable DPMS features
 setxkbmap tr                                                                        # keymap
 xsetroot -cursor_name left_ptr                                                      # cursor
 feh --no-fehbg --bg-max /home/ayilmaz/Media/Pictures/Wallpapers/currentwallpaper    # background
