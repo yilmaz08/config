@@ -1,6 +1,6 @@
 This repo contains my configuration files I have on my laptop.
 
-For neovim config: [neovim-config](https://github.com/yilmaz08/neovim-config) \
+For neovim config: [neovim-config](https://github.com/yilmaz08/neovim-config)
 
 What I use:
 ```
