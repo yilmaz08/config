@@ -27,7 +27,8 @@ xset s off																			# disable screen saver
 xset -dpms																			# disable DPMS features
 setxkbmap tr                                                                        # keymap
 xsetroot -cursor_name left_ptr                                                      # cursor
-feh --no-fehbg --bg-max /home/ayilmaz/Media/Pictures/Wallpapers/currentwallpaper    # background
+#feh --no-fehbg --bg-max /home/ayilmaz/Media/Pictures/Wallpapers/currentwallpaper    # background
+xwallpaper --maximize /home/ayilmaz/Media/Pictures/Wallpapers/currentwallpaper		# background
 pgrep -x sxhkd > /dev/null || sxhkd &                                               # shortcuts
 picom --fade-in-step=1 --fade-out-step=1 --fade-delta=0 --no-fading-openclose &		# compositor
 flameshot &                                                                         # screenshot tool
@@ -35,7 +36,6 @@ clipmenud &																			# clipboard
 polybar bottom &																	# top bar
 polybar top &                                                                       # bottom bar
 dunst &																				# notification daemon
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &                         # polkit
 
 ### BSPWM CONFIG ###
 bspc config focus_follows_pointer true
