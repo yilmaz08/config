@@ -29,11 +29,12 @@ alias se="sudo -E -s nvim"
 alias sr="sudo ranger"
 
 # emerge
-alias E="sudo emerge"
-alias Ei="E --ask"
-alias Eu="E --unmerge --ask"
-alias Es="E --sync"
-alias Esearch="E --search"
+alias emerge="sudo -E emerge"
+alias E="emerge --ask"
+alias Eu="emerge --unmerge --ask"
+alias Ei="emerge --info"
+alias Esy="emerge --sync"
+alias Es="emerge --search"
 
 # aur helper
 # alias aur="paru" # change this alias to affect all

@@ -2,7 +2,7 @@
 super + {_, shift + }t
 	{alacritty,alacritty}
 super + {_, shift + }b
-	{zen-browser,chromium --incognito}
+	{librewolf,librewolf --private-window}
 super + {_, shift + }c
 	alacritty -T "The Superior Text Editor" -e nvim ~
 super + {_, shift + }q
