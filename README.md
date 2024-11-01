@@ -9,4 +9,5 @@ Window Manager       : bspwm (X11)
 Terminal Emulator    : alacritty
 Editor               : neovim
 Shell                : fish
+Browser              : LibreWolf
 ```
