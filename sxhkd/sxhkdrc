@@ -1,81 +1,71 @@
 ### APPS ###
 super + {_, shift + }t
-	{alacritty,alacritty}
+	{alacritty,kitty}
 super + {_, shift + }b
 	{librewolf,librewolf --private-window}
-super + {_, shift + }c
-	alacritty -T "The Superior Text Editor" -e nvim ~
-super + {_, shift + }q
-	{thunderbird,thunderbird}
-super + {_, shift + }e
-	{alacritty -e ranger,alacritty -e ranger}
-super + {_, shift + }w
-	{whatsapp, telegram-desktop}
-super + {_, shift + }d
-	{discord,ferdium}
 super + {_, shift + }v
-    {mpv --player-operation-mode=pseudo-gui --keep-open, CM_LAUNCHER=rofi clipmenu}
-
-super + Escape
-	sh -c "/home/ayilmaz/.config/rofi/power_menu.sh"
-
+	{mpv --player-operation-mode=pseudo-gui --keep-open, vlc}
+super + {_, shift + }e
+	{alacritty -e ranger, nautilus -w}
 
 ### GENERAL ###
 # Close and Kill
 super + {_, shift + }x
 	bspc node -{c,k}
 # Floating and Fullscreen
-super + {_, shift + }f
-   	bspc node -t {'~fullscreen','~floating'}
+super + {_, shift + , alt + }f
+	bspc node -t {'~fullscreen','~floating', '~tiled'}
 # Lockscreen
 super + l
 	slock
-
+# Power Menu
+super + Escape
+	/home/ayilmaz/.config/rofi/power_menu.sh
 # Rofi
 Menu
-	rofi -no-lazy-grab -show drun -modi drun
+	rofi -show drun
 # Screenshot
 Print
 	flameshot gui
-
+# Clipboard
+super + c
+	CM_LAUNCHER=rofi clipmenu
 # Reload sxhkd
-# super + Escape
 super + r
 	pkill -USR1 -x sxhkd
 
+### BSPWM ###
 # Quit and restart
 super + alt + {q,r}
 	bspc {quit,wm -r}
-	
 # Workspaces
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '{1-9,10}'
 super + {_,shift + }F{1-3}
 	bspc {desktop -f,node -d} '{I,II,III}'
-
 super + {_,shift + }Tab
 	bspc desktop -f {next,prev}
 super + alt + {_,shift + }Tab
 	bspc node -d {next,prev}
-
+# Layouts
+super + {_,shift + }quotedbl
+	bsp-layout {next,previous} --layouts tiled,tall,even
 # Move focus
 super + {_,shift + }{Left,Down,Up,Right}
 	bspc node -{f,s} {west,south,north,east}
 
+### SYSTEM ###
 # Brightness
 XF86MonBrightness{Up,Down}  
 	brightnessctl s 10%{+,-}
-
 # Audio
 XF86Audio{Raise,Lower}Volume  
 	pamixer --allow-boost {-i,-d}10  
 XF86AudioMute  
 	pamixer -t
-
 # Player
 XF86Audio{Pause,Play,Next,Prev}
 	playerctl {pause,play-pause,next,previous}
-
 # Mouse Player Controls
 super + {button2,button8,button9}
 	playerctl {play-pause,previous,next}
