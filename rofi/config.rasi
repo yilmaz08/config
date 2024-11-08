@@ -1,1 +1,5 @@
 @theme "/usr/share/rofi/themes/android_notification.rasi"
+configuration {
+	modi: "window,drun,calc,emoji,run,ssh";
+	terminal: "alacritty";
+}

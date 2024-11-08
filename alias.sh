@@ -1,5 +1,5 @@
 alias py="python3"
-alias pong="ping archlinux.org"
+alias pong="ping gentoo.org"
 alias trm="trash-put"
 alias lg="lazygit"
 alias cdtemp="cd \$(mktemp -d)"
