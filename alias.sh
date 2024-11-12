@@ -3,6 +3,7 @@ alias pong="ping gentoo.org"
 alias trm="trash-put"
 alias lg="lazygit"
 alias cdtemp="cd \$(mktemp -d)"
+alias neofetch="fastfetch -c neofetch"
 
 alias adamimprojevarmiya="cd ~/Projects/; ls -l"
 
@@ -10,11 +11,6 @@ alias adamimprojevarmiya="cd ~/Projects/; ls -l"
 alias c="clear"
 alias clr="clear"
 alias cls="clear"
-
-# fetch
-alias nf="neofetch"
-alias ff="fastfetch"
-alias fetch="ff -c examples/13"
 
 # ls
 alias ls="/usr/bin/exa"
@@ -81,6 +77,9 @@ alias drm="docker rm"
 alias dexec="docker exec"
 alias dps="docker ps"
 alias dcompose="docker compose"
+
+# iwctl
+alias wifi="iwctl station wlan0"
 
 # ifconfig.me
 alias myip="curl ifconfig.me/ip"

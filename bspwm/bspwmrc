@@ -20,7 +20,7 @@ fi
 ### ENV ###
 export GTK_THEME=Adwaita:dark
 export EDITOR=nvim
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/home/ayilmaz/.cargo/bin:/home/linuxbrew/.linuxbrew/bin
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/home/ayilmaz/.cargo/bin:/home/linuxbrew/.linuxbrew/bin:/opt/bin
 
 ### STARTUP ###
 xset s off																			# disable screen saver
@@ -32,7 +32,7 @@ pgrep -x sxhkd > /dev/null || sxhkd &                                           
 picom --fade-in-step=1 --fade-out-step=1 --fade-delta=0 --no-fading-openclose &		# compositor
 flameshot &                                                                         # screenshot tool
 clipmenud &																			# clipboard
-polybar bottom &																	# top bar
+polybar main &																		# bar
 dunst &																				# notification daemon
 
 ### BSPWM CONFIG ###

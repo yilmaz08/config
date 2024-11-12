@@ -6,18 +6,21 @@ super + {_, shift + }b
 super + {_, shift + }v
 	{mpv --player-operation-mode=pseudo-gui --keep-open, vlc}
 super + {_, shift + }e
-	{alacritty -e ranger, nautilus -w}
+	{alacritty -e ranger,alacritty -e yazi}
 
 ### GENERAL ###
 # Close and Kill
 super + {_, shift + }x
 	bspc node -{c,k}
 # Floating and Fullscreen
-super + {_, shift + , alt + }f
-	bspc node -t {'~fullscreen','~floating', '~tiled'}
+super + {_, shift + }f
+	bspc node -t {'~fullscreen','~floating'}
+super + {_, shift + }quotedbl
+	bspc node -t {'~tiled', '~pseudo_tiled'}
 # Lockscreen
 super + l
-	slock
+	xsecurelock
+	# slock
 # Power Menu
 super + Escape
 	/home/ayilmaz/.config/rofi/power_menu.sh
@@ -47,9 +50,6 @@ super + {_,shift + }Tab
 	bspc desktop -f {next,prev}
 super + alt + {_,shift + }Tab
 	bspc node -d {next,prev}
-# Layouts
-super + {_,shift + }quotedbl
-	bsp-layout {next,previous} --layouts tiled,tall,even
 # Move focus
 super + {_,shift + }{Left,Down,Up,Right}
 	bspc node -{f,s} {west,south,north,east}

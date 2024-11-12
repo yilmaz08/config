@@ -1,5 +1,175 @@
-@theme "/usr/share/rofi/themes/android_notification.rasi"
 configuration {
 	modi: "window,drun,calc,emoji,run,ssh";
 	terminal: "alacritty";
+}
+* {
+    foreground: #cad3f5;
+}
+
+window {
+    border-color:     rgba ( 85, 92, 105, 100 % );
+    background-color: #24273a;
+	text-color: #cad3f5;
+    border:           1px;
+    border-radius:    10px;
+    padding:          0.5em;
+    spacing:          0px;
+    anchor:         north;
+    location:       center;
+    y-offset:       -15.5em;
+    children: [ inputbar, message, wrapper-mode-switcher, listview ];
+}
+
+wrapper-mode-switcher {
+    orientation: horizontal;
+    expand:     false;
+    spacing:    0;
+    children: [ mode-switcher ];
+}
+
+mode-switcher {
+    border:  0px;
+    spacing: 0px;
+    expand: true;
+    text-color: #cad3f5;
+}
+
+button {
+    padding:      2px;
+    border:       0px 0px 1px ;
+    border-color: rgba ( 85, 92, 105, 100 % );
+    text-color: #cad3f5;
+    horizontal-align: 0.5;
+}
+
+button selected.normal {
+    text-color: #cad3f5;
+    background-color: #24273a;
+    border:       1px 1px 0px ;
+    border-color: rgba ( 85, 92, 105, 100 % );
+    border-radius:    10px 10px 0 0;
+}
+
+sidebar {
+    expand: false;
+}
+
+message {
+    background-color: #24273a;
+    border-color:     rgba ( 85, 92, 105, 100 % );
+    border:           1px;
+    border-radius:    5px;
+    padding:          4px;
+    margin:           0px 0px 0.5em;
+    expand:           false;
+    text-color:       #cad3f5;
+}
+
+listview {
+    spacing:      2px ;
+    scrollbar:    false;
+    padding:      0.5em;
+    background-color: #24273a;
+    text-color: #cad3f5;
+    expand:       true;
+    border:       0px 1px 1px ;
+    border-color: rgba ( 85, 92, 105, 100 % );
+    border-radius: 0px 0px 10px 10px;
+}
+element {
+    border:  1;
+    border-color: transparent;
+    padding: 4px ;
+}
+element.normal.normal {
+    background-color: #24273a;
+    text-color: #cad3f5;
+}
+element.normal.urgent {
+    background-color: #24273a;
+    text-color: #cad3f5;
+}
+element.normal.active {
+    background-color: #24273a;
+    text-color: #cad3f5;
+}
+element.alternate.normal {
+    background-color: #24273a;
+    text-color: #cad3f5;
+}
+element.alternate.urgent {
+    background-color: #24273a;
+    text-color: #cad3f5;
+}
+element.alternate.active {
+    background-color: #24273a;
+    text-color: #cad3f5;
+}
+element.selected.normal {
+    border:  1;
+    border-color: rgba ( 85, 92, 105, 100 % );
+    border-radius: 5px 5px 5px 5px;
+    background-color: #24273a;
+    text-color:       #cad3f5;
+}
+element.selected.urgent {
+    border:  1;
+    border-color: rgba ( 85, 92, 105, 100 % );
+    border-radius: 5px 5px 5px 5px;	
+    background-color: #24273a;
+    text-color:       #cad3f5;
+}
+element.selected.active {
+    border:  1;
+    border-color: rgba ( 85, 92, 105, 100 % );
+    border-radius: 5px 5px 5px 5px;	
+    background-color: #24273a;
+    text-color:       #cad3f5;
+}
+
+scrollbar {
+    width:        4px ;
+    border:       0;
+    handle-width: 8px ;
+    padding:      0;
+    text-color: #cad3f5;
+}
+sidebar {
+    border:       1px 0px 0px ;
+    border-color: rgba ( 85, 92, 105, 100 % );
+    text-color: #cad3f5;
+}
+inputbar {
+    text-color: #cad3f5;
+    padding: 0px 0px 0.5em;
+    children:   [ wrapper ];
+}
+case-indicator {
+    text-color: #cad3f5;
+}
+
+wrapper {
+    orientation: horizontal;
+    background-color: #24273a;
+    text-color: #cad3f5;
+    border-color: rgba ( 85, 92, 105, 100 % );
+    border: 1px;
+    border-radius: 5px;
+    padding: 4px;
+    children:   [ entry ];
+    spacing:  0.5em;
+}
+
+entry {
+    vertical-align: 0.5;
+    text-color: #cad3f5;
+}
+
+error-message {
+    background-color: #24273a;
+    border-color: darkred;
+    border-radius: 10px;
+    border: 1px;
+    padding: 0.5em;
+    text-color: #cad3f5;
 }
