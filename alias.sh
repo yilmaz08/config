@@ -9,8 +9,6 @@ alias adamimprojevarmiya="cd ~/Projects/; ls -l"
 
 # clear
 alias c="clear"
-alias clr="clear"
-alias cls="clear"
 
 # ls
 alias ls="/usr/bin/exa"
@@ -21,40 +19,20 @@ alias tree="ls --tree"
 # tools
 alias r="ranger"
 alias e="nvim"
-alias se="sudo -E -s nvim"
-alias sr="sudo ranger"
+alias se="sudo -E nvim"
+alias sr="sudo -E ranger"
 
 # emerge
 alias emerge="sudo -E emerge"
-alias E="emerge --ask"
-alias Eu="emerge --unmerge --ask"
-alias Ei="emerge --info"
-alias Esy="emerge --sync"
-alias Es="emerge --search"
-
-# aur helper
-# alias aur="paru" # change this alias to affect all
-# alias S="aur -S"
-# alias Ss="aur -Ss"
-# alias Si="aur -Si"
-# alias Syu="aur -Syu"
-# alias Syyu="aur -Syyu"
-# alias R="aur -R"
-# alias Rcns="aur -Rcns"
-# alias Q="aur -Q"
-# alias Qe="aur -Qe"
-# alias Su="aur -Su"
-# alias Fy="aur -Fy"
-# alias F="aur -F"
-
-# systemctl
-# alias sstart="sudo systemctl start"
-# alias srestart="sudo systemctl restart"
-# alias sreload="sudo systemctl reload"
-# alias sstop="sudo systemctl stop"
-# alias senable="sudo systemctl enable"
-# alias sdisable="sudo systemctl disable"
-# alias sstatus="sudo systemctl status"
+alias E="emerge --verbose-conflicts --verbose --ask"
+alias Eun="E --unmerge"
+alias Ep="E --prune"
+alias Ei="E --info"
+alias Es="E --sync"
+alias Ese="E --search"
+alias Esd="E --searchdesc"
+alias Eu="E --update --newuse --deep"
+alias Ec="E --depclean --deep"
 
 # bluetoothctl
 alias btrust="bluetoothctl trust"
