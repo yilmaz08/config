@@ -10,6 +10,7 @@ Terminal Emulator    : alacritty
 Editor               : neovim
 Shell                : fish
 Browser              : LibreWolf
+Cursor               : Bibata Modern Classic
 ```
 
 ## Preview
