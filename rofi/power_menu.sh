@@ -1,16 +1,22 @@
 #!/bin/bash
 
-options="Power Off\nReboot"
+options="Power Off\nReboot\nSuspend\nHibernate"
 
 choice=$(echo -e "$options" | rofi -dmenu -p "Power Menu")
 
 case $choice in
     "Power Off")
-        sudo poweroff
+        loginctl poweroff
         ;;
     "Reboot")
-        sudo reboot
+        loginctl reboot
         ;;
+	"Suspend")
+		loginctl suspend
+		;;
+	"Hibernate")
+		loginctl hibernate
+		;;
     *)
         exit 1
         ;;
