@@ -25,6 +25,7 @@ alias sr="sudo -E ranger"
 # emerge
 alias emerge="sudo -E emerge"
 alias E="emerge --verbose-conflicts --verbose --ask"
+# alias E="emerge"
 alias Eun="E --unmerge"
 alias Ep="E --prune"
 alias Ei="E --info"
@@ -33,6 +34,7 @@ alias Ese="E --search"
 alias Esd="E --searchdesc"
 alias Eu="E --update --newuse --deep"
 alias Ec="E --depclean --deep"
+alias Ed="E --deselect"
 
 # bluetoothctl
 alias btrust="bluetoothctl trust"
