@@ -56,7 +56,8 @@ alias drestart="docker restart"
 alias drm="docker rm"
 alias dexec="docker exec"
 alias dps="docker ps"
-alias dcompose="docker compose"
+alias dcomp="docker compose"
+alias dlogs="docker logs -f"
 
 # iwctl
 alias wifi="iwctl station wlan0"
