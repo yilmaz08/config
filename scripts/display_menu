@@ -1,0 +1,21 @@
+#!/bin/bash
+
+options="Solo\nDual\nMirror"
+
+choice=$(echo -e "$options" | rofi -dmenu -p "Display Menu")
+
+case $choice in
+    "Solo")
+		displayctl solo
+        ;;
+    "Dual")
+        displayctl dual
+        ;;
+	"Mirror")
+		displayctl mirror
+		;;
+    *)
+        exit 1
+        ;;
+esac
+

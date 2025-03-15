@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# Solo -> Mirror
+# Solo -> Dual
+# Mirror -> Dual
+# Mirror -> Solo
+# Dual -> Mirror (WARNING: moves 3 workspaces)
+# Dual -> Solo (ERROR: what?)
+
+MODE="$1"
+
+if [ -z "$MODE" ]; then
+	echo "Usage: $0 [solo|mirror|dual]"
+	exit 1
+fi
+
+INTERNAL="eDP-1"
+EXTERNAL="HDMI-1"
+
+case "$MODE" in
+	solo)
+		xrandr --output $INTERNAL --primary --output $EXTERNAL --off
+    ;;
+	mirror)
+		xrandr --output $EXTERNAL --auto --primary --output $INTERNAL --auto --same-as $EXTERNAL
+    ;;
+	dual)
+		xrandr --output $INTERNAL --primary --output $EXTERNAL --auto --left-of $INTERNAL
+    ;;
+	*)
+		echo "Unknown mode: $MODE"
+		echo "Usage: $0 [solo|mirror|dual]"
+		exit 1
+    ;;
+esac
+
+bspc monitor $INTERNAL -d 1 2 3 4 5 6 7 8 9 10
+bspc monitor $EXTERNAL -d I II III
+
+xwallpaper --maximize ~/.config/wallpaper # reload wallpaper (sometimes needed)

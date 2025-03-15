@@ -10,8 +10,12 @@ alias adamimprojevarmiya="cd ~/Projects/; ls -l"
 # clear
 alias c="clear"
 
+# clipboard in terminal
+alias xpaste="xsel --clipboard --output"
+alias xcopy="xsel --clipboard"
+
 # ls
-alias ls="/usr/bin/exa"
+alias ls="/usr/bin/eza"
 alias l="ls -l"
 alias la="ls -la"
 alias tree="ls --tree"
@@ -25,7 +29,6 @@ alias sr="sudo -E ranger"
 # emerge
 alias emerge="sudo -E emerge"
 alias E="emerge --verbose-conflicts --verbose --ask"
-# alias E="emerge"
 alias Eun="E --unmerge"
 alias Ep="E --prune"
 alias Ei="E --info"
@@ -35,16 +38,17 @@ alias Esd="E --searchdesc"
 alias Eu="E --update --newuse --deep"
 alias Ec="E --depclean --deep"
 alias Ed="E --deselect"
+alias Er="E @preserved-rebuild"
 
 # bluetoothctl
-alias btrust="bluetoothctl trust"
-alias bpair="bluetoothctl pair"
-alias bconn="bluetoothctl connect"
-alias bdisconn="bluetoothctl disconnect"
-alias bpower="bluetoothctl power"
-alias bscan="bluetoothctl scan"
-alias bdev="bluetoothctl devices"
 alias bctl="bluetoothctl"
+alias btrust="bctl trust"
+alias bpair="bctl pair"
+alias bconn="bctl connect"
+alias bdisconn="bctl disconnect"
+alias bpower="bctl power"
+alias bscan="bctl scan"
+alias bdev="bctl devices"
 
 # docker
 alias drun="docker run"

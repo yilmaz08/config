@@ -1,5 +1,5 @@
 configuration {
-	modi: "window,drun,calc,emoji,run,ssh";
+	modi: "window,drun,calc,run,ssh";
 	terminal: "alacritty";
 }
 * {

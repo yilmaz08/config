@@ -1,0 +1,30 @@
+#!/bin/bash
+
+options="Power Off\nReboot\nLock\nLog Out\nSuspend\nHibernate"
+
+choice=$(echo -e "$options" | rofi -dmenu -p "Power Menu")
+
+case $choice in
+    "Power Off")
+        poweroff
+        ;;
+    "Reboot")
+        reboot
+        ;;
+	"Lock")
+		xsecurelock
+		;;
+	"Log Out")
+		bspc quit
+		;;
+	"Suspend")
+		suspend
+		;;
+	"Hibernate")
+		hibernate
+		;;
+    *)
+        exit 1
+        ;;
+esac
+

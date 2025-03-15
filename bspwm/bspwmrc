@@ -1,41 +1,25 @@
 #!/bin/bash
 
 ### MONITOR ###
-export MONITOR_NAME="eDP-1"
-export EXTERNAL_MONITOR_NAME="HDMI-1-0"
-
 STATUS_EXTERNAL_MONITOR=$(xrandr --query | grep $EXTERNAL_MONITOR_NAME)
 if [[ ! $STATUS_EXTERNAL_MONITOR == *disconnected* ]]; then
-    xrandr --output $MONITOR_NAME --primary --mode 1920x1080 --output $EXTERNAL_MONITOR_NAME --mode 1920x1080 --rotate normal --left-of $MONITOR_NAME
+	displayctl dual
 else
-    xrandr --output $EXTERNAL_MONITOR_NAME --off
+    displayctl solo
 fi
-
-### WORKSPACES ###
-bspc monitor $MONITOR_NAME -d 1 2 3 4 5 6 7 8 9 10
-if [[ ! $STATUS_EXTERNAL_MONITOR == *disconnected* ]]; then
-	bspc monitor $EXTERNAL_MONITOR_NAME -d I II III
-fi
-
-### ENV ###
-export GTK_THEME=Adwaita:dark
-export XCURSOR_THEME="Bibata-Modern-Classic"
-export XCURSOR_SIZE="24"
-export EDITOR=nvim
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/opt/bin:$HOME/.local/bin:$HOME/.cargo/bin
 
 ### STARTUP ###
-xset s off																			# disable screen saver
-xset -dpms																			# disable DPMS features
-setxkbmap tr                                                                        # keymap
-xsetroot -cursor_name left_ptr                                                      # cursor
-xwallpaper --maximize /home/ayilmaz/Media/Pictures/Wallpapers/currentwallpaper		# background
-pgrep -x sxhkd > /dev/null || sxhkd &                                               # shortcuts
-picom --fade-in-step=1 --fade-out-step=1 --fade-delta=0 --no-fading-openclose &		# compositor
-flameshot &                                                                         # screenshot tool
-clipmenud &																			# clipboard
-polybar main &																		# bar
-dunst &																				# notification daemon
+xset s off										# disable screen saver
+xset -dpms										# disable DPMS features
+setxkbmap -option altwin:swap_lalt_lwin us		# keymap
+xsetroot -cursor_name left_ptr                  # cursor
+xwallpaper --maximize ~/.config/wallpaper		# background
+
+pgrep -x sxhkd > /dev/null || sxhkd &           # shortcuts
+picom &											# compositor
+flameshot &                                     # screenshot tool
+clipmenud &										# clipboard
+polybar main &									# bar
 
 ### BSPWM CONFIG ###
 bspc config focus_follows_pointer true
@@ -44,9 +28,13 @@ bspc config window_gap           4
 bspc config top_padding          0
 bspc config bottom_padding       0
 
-bspc config split_ratio          0.52
+bspc config split_ratio          0.65
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
-# bspc config focused_border_color     "#26F0F1"
-# bspc config normal_border_color      "#202A25"
+bspc config remove_disabled_monitors      true
+bspc config merge_overlapping_monitors    true
+
+### BSPWM RULES ###
+bspc rule -a "Weston Compositor" state=floating
+bspc rule -a "PacketTracer" state=floating

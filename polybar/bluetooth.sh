@@ -8,6 +8,6 @@ else
     echo "" # not connected
   else
     
-    echo "%{F#7da6ff}" $(bluetoothctl devices Connected | wc -l) # connected
+    echo "%{F#59A1E8}" $(bluetoothctl devices Connected | wc -l) # connected
   fi
 fi
