@@ -6,22 +6,22 @@ choice=$(echo -e "$options" | rofi -dmenu -p "Power Menu")
 
 case $choice in
     "Power Off")
-        poweroff
+        loginctl poweroff
         ;;
     "Reboot")
-        reboot
+        loginctl reboot
         ;;
 	"Lock")
 		xsecurelock
 		;;
 	"Log Out")
-		bspc quit
+		bspwm_logout
 		;;
 	"Suspend")
-		suspend
+		loginctl suspend
 		;;
 	"Hibernate")
-		hibernate
+		loginctl hibernate
 		;;
     *)
         exit 1

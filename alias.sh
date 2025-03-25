@@ -4,6 +4,7 @@ alias trm="trash-put"
 alias lg="lazygit"
 alias cdtemp="cd \$(mktemp -d)"
 alias neofetch="fastfetch -c neofetch"
+alias ..="cd .."
 
 alias adamimprojevarmiya="cd ~/Projects/; ls -l"
 
@@ -21,7 +22,7 @@ alias la="ls -la"
 alias tree="ls --tree"
 
 # tools
-alias r="ranger"
+alias r="rangercd"
 alias e="nvim"
 alias se="sudo -E nvim"
 alias sr="sudo -E ranger"

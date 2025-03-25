@@ -1,0 +1,3 @@
+bspc quit
+rm -f /tmp/.X0-lock
+rm -f /tmp/.X11-unix/X0

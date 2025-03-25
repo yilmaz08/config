@@ -55,7 +55,7 @@ super + r
 ### BSPWM ###
 # Quit and restart
 super + shift + {q,r}
-	bspc {quit,wm -r}
+	{bspwm_logout,bspc wm -r}
 # Workspaces
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '{1-9,10}'
@@ -66,6 +66,8 @@ super + {Left,Down,Up,Right}
 	bspc node -f {west,south,north,east}
 super + shift + {Left,Down,Up,Right}
 	bspc node -s {west,south,north,east}
+super + ctrl + {Left,Down,Up,Right}
+	bspc node -v {-100 0,0 100,0 -100,100 0}
 
 ### SYSTEM ###
 # Brightness

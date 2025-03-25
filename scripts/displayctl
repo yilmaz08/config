@@ -15,14 +15,14 @@ if [ -z "$MODE" ]; then
 fi
 
 INTERNAL="eDP-1"
-EXTERNAL="HDMI-1"
+EXTERNAL="HDMI-1-0"
 
 case "$MODE" in
 	solo)
 		xrandr --output $INTERNAL --primary --output $EXTERNAL --off
     ;;
 	mirror)
-		xrandr --output $EXTERNAL --auto --primary --output $INTERNAL --auto --same-as $EXTERNAL
+		xrandr --output $INTERNAL --auto --primary --output $EXTERNAL --auto --same-as $INTERNAL
     ;;
 	dual)
 		xrandr --output $INTERNAL --primary --output $EXTERNAL --auto --left-of $INTERNAL

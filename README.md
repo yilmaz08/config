@@ -8,7 +8,7 @@ Linux Distro         : Gentoo Linux
 Window Manager       : bspwm (X11)
 Terminal Emulator    : alacritty
 Editor               : neovim
-Shell                : fish
+Shell                : zsh
 Browser              : LibreWolf
 Cursor               : Bibata Modern Classic
 ```
