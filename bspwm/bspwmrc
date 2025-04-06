@@ -1,14 +1,7 @@
 #!/bin/bash
 
-### MONITOR ###
-STATUS_EXTERNAL_MONITOR=$(xrandr --query | grep $EXTERNAL_MONITOR_NAME)
-if [[ ! $STATUS_EXTERNAL_MONITOR == *disconnected* ]]; then
-	displayctl dual
-else
-    displayctl solo
-fi
-
 ### STARTUP ###
+displayctl auto									# setup monitors
 xset s off										# disable screen saver
 xset -dpms										# disable DPMS features
 setxkbmap -option altwin:swap_lalt_lwin us		# keymap
@@ -38,3 +31,5 @@ bspc config merge_overlapping_monitors    true
 ### BSPWM RULES ###
 bspc rule -a "Weston Compositor" state=floating
 bspc rule -a "PacketTracer" state=floating
+bspc rule -a "pavucontrol" state=floating
+bspc rule -a "org.remmina.Remmina:*:Remmina Remote Desktop Client" state=floating

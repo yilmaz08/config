@@ -10,7 +10,7 @@
 MODE="$1"
 
 if [ -z "$MODE" ]; then
-	echo "Usage: $0 [solo|mirror|dual]"
+	echo "Usage: $0 [solo|mirror|left|right|auto]"
 	exit 1
 fi
 
@@ -24,12 +24,23 @@ case "$MODE" in
 	mirror)
 		xrandr --output $INTERNAL --auto --primary --output $EXTERNAL --auto --same-as $INTERNAL
     ;;
-	dual)
+	left)
 		xrandr --output $INTERNAL --primary --output $EXTERNAL --auto --left-of $INTERNAL
+    ;;
+	right)
+		xrandr --output $INTERNAL --primary --output $EXTERNAL --auto --right-of $INTERNAL
+    ;;
+	auto)
+		EXT=$(xrandr --query | grep $EXTERNAL)
+		if [[ ! $EXT == *disconnected* ]]; then
+			displayctl left
+		else
+			displayctl solo
+		fi
     ;;
 	*)
 		echo "Unknown mode: $MODE"
-		echo "Usage: $0 [solo|mirror|dual]"
+		echo "Usage: $0 [solo|mirror|left|right|auto]"
 		exit 1
     ;;
 esac

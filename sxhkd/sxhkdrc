@@ -15,27 +15,24 @@ super + shift + v
 	mpv --player-operation-mode=pseudo-gui --keep-open --shuffle --loop-playlist ~/Media/Music/
 
 ### GENERAL ###
-# Close and Kill
-super + {_, shift + }x
-	bspc node -{c,k}
-super + ctrl + x
-	bspc node -g locked
-# Floating and Fullscreen
-super + {_, shift + }f
-	bspc node -t {'~fullscreen','~floating'}
-super + {_, shift + }grave
-	bspc node -t {'~tiled', '~pseudo_tiled'}
-# Pin
+# Close, Kill and Lock
+super + {_, shift +, ctrl + }x
+	bspc node -{c,k,g locked}
+# Pin and Minimize
 super + p
 	bspc node -g sticky
+super + {_, shift + }z
+	toggle_minimize {hide, restore}
+# Window modes
+super + {_, shift +, ctrl + }f
+	bspc node -t {'~fullscreen', '~floating', '~tiled'}
 # Lockscreen
-super + l
-	xsecurelock
+super + {_, shift + }l
+	{xsecurelock,
+	playerctl pause -a; pamixer -m; xsecurelock}
 # Power Options
-super + Escape
-	power_menu
-super + shift + Escape
-	loginctl poweroff
+super + {_, shift + }Escape
+	{power_menu, loginctl poweroff}
 # Rofi
 {Menu, super + space}
 	rofi -show drun
@@ -62,12 +59,13 @@ super + {_,shift + }{1-9,0}
 super + {_,shift + }F{1-3}
 	bspc {desktop -f,node -d} '{I,II,III}'
 # Move focus
-super + {Left,Down,Up,Right}
-	bspc node -f {west,south,north,east}
-super + shift + {Left,Down,Up,Right}
-	bspc node -s {west,south,north,east}
-super + ctrl + {Left,Down,Up,Right}
-	bspc node -v {-100 0,0 100,0 -100,100 0}
+super + {Up,Right,Down,Left}
+	bspc node -f {north,east,south,west}
+# Move window
+super + shift + {Up,Right,Down,Left}
+	bspc node -s {north,east,south,west}
+super + ctrl + {Up,Right,Down,Left}
+	bspc node -v {0 -100, 100 0, 0 100, -100 0}
 
 ### SYSTEM ###
 # Brightness
@@ -79,9 +77,8 @@ XF86Audio{Raise,Lower}Volume
 XF86AudioMute  
 	pamixer -t
 # Player
-XF86Audio{Pause,Play,Next,Prev}
-	playerctl {pause,play-pause,next,previous}
-# Mouse Player Controls
+XF86Audio{Pause,Play,Next,Prev,Stop}
+	playerctl {pause,play-pause,next,previous,stop}
 super + {button2,button8,button9}
 	playerctl {play-pause,previous,next}
 

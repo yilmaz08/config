@@ -1,0 +1,15 @@
+#!/bin/bash
+
+HIDDEN_FILE="/tmp/bspwm_hidden_windows"
+
+if [[ "$1" == "restore" ]]; then
+    if [[ -s $HIDDEN_FILE ]]; then
+        WIN_ID=$(tail -n 1 "$HIDDEN_FILE")
+        sed -i '$d' "$HIDDEN_FILE"
+        bspc node "$WIN_ID" -g hidden=off
+    fi
+else
+    WIN_ID=$(bspc query -N -n focused)
+    echo "$WIN_ID" >> "$HIDDEN_FILE"
+    bspc node "$WIN_ID" -g hidden=on
+fi
