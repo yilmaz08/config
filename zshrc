@@ -13,6 +13,13 @@ alias cd=z
 alias cdi=zi
 source ~/.config/alias.sh
 
+# Widgets
+editor() {
+	nvim ./
+	zle reset-prompt
+}
+zle -N editor
+
 # Bindings
 bindkey "^[[3~" delete-char # Delete
 bindkey '^[[1;5A' history-substring-search-up # Ctrl+Up
@@ -21,8 +28,10 @@ bindkey '^[[1;5C' forward-word # Ctrl+Right
 bindkey '^[[1;5D' backward-word # Ctrl+Left
 bindkey '^[[F' end-of-line # End
 bindkey '^[[H' beginning-of-line # Home
+bindkey '^H' beginning-of-line # Ctrl+H
 bindkey '^[[5~' history-search-backward # Page Up
 bindkey '^[[6~' history-search-forward # Page Down
+bindkey '^E' editor # Ctrl+E
 
 # Extensions
 source ~/.config/zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -43,7 +52,6 @@ SAVEHIST=10000
 setopt APPEND_HISTORY # Append history instead of overwriting
 setopt HIST_IGNORE_DUPS	# Ignore duplicate commands
 setopt HIST_IGNORE_ALL_DUPS	# Remove older duplicate commands
-setopt SHARE_HISTORY # Share history between sessions
 setopt INC_APPEND_HISTORY_TIME # Write history incrementally
 
 # Other
