@@ -28,8 +28,8 @@ super + {_, shift +, ctrl + }f
 	bspc node -t {'~fullscreen', '~floating', '~tiled'}
 # Lockscreen
 super + {_, shift + }l
-	{xsecurelock,
-	playerctl pause -a; pamixer -m; xsecurelock}
+	{betterlockscreen -l,
+	playerctl pause -a; pamixer -m; betterlockscreen -l}
 # Power Options
 super + {_, shift + }Escape
 	{power_menu, loginctl poweroff}
