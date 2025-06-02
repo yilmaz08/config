@@ -18,4 +18,4 @@ if rc-service tor status > /dev/null; then
 	[ -n "$status" ] && status="$status + tor" || status="tor"
 fi
 
-[ -n "$status" ] && echo " $status" || echo
+[ -n "$status" ] && echo " $status" || echo "%{F#394b70}"
