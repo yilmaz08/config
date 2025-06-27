@@ -38,7 +38,8 @@ source ~/.config/zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh_plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.config/zsh_plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 source ~/.config/zsh_plugins/zsh-autoswitch-virtualenv/autoswitch_virtualenv.plugin.zsh
-source ~/.config/zsh_plugins/ohmyzsh-sudo/sudo.plugin.zsh
+#source ~/.config/zsh_plugins/ohmyzsh-sudo/sudo.plugin.zsh
+source ~/.config/zsh_plugins/fzf-tab/fzf-tab.plugin.zsh
 
 # Completions
 autoload -Uz compinit
@@ -53,6 +54,9 @@ setopt APPEND_HISTORY # Append history instead of overwriting
 setopt HIST_IGNORE_DUPS	# Ignore duplicate commands
 setopt HIST_IGNORE_ALL_DUPS	# Remove older duplicate commands
 setopt INC_APPEND_HISTORY_TIME # Write history incrementally
+
+# Opts
+setopt AUTO_CD # Change directory by executing directories
 
 # Other
 eval "$(zoxide init zsh)" # Advanced cd

@@ -1,30 +1,23 @@
 #!/bin/bash
 
-options="Power Off\nReboot\nLock\nLog Out\nSuspend\nHibernate"
+roficonfig=~/.config/rofi/power.rasi
 
-choice=$(echo -e "$options" | rofi -dmenu -p "Power Menu")
+# Options
+poweroff="󰐥"
+reboot="󰜉"
+lock="󰌾"
+options="$poweroff\n$reboot\n$lock"
 
-case $choice in
-    "Power Off")
-        loginctl poweroff
-        ;;
-    "Reboot")
-        loginctl reboot
-        ;;
-	"Lock")
-		xsecurelock
+choice=$(echo -e "$options" | rofi -config $roficonfig -dmenu -p "Display Menu")
+
+case $choice in 
+	$poweroff)
+		loginctl poweroff
 		;;
-	"Log Out")
-		bspwm_logout
+	$reboot)
+		loginctl reboot
 		;;
-	"Suspend")
-		loginctl suspend
+	$lock)
+		betterlockscreen -l
 		;;
-	"Hibernate")
-		loginctl hibernate
-		;;
-    *)
-        exit 1
-        ;;
 esac
-

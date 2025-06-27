@@ -1,0 +1,55 @@
+From cbaa365a336355712e3c63a550f903b2cd46ab58 Mon Sep 17 00:00:00 2001
+From: Anton Yabchinskiy <arn@bestmx.net>
+Date: Sun, 1 Oct 2023 22:42:59 +0300
+Subject: [PATCH] Add setxkbgroup() function to be used in keys[]
+
+---
+ dwm.c | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+
+diff --git a/dwm.c b/dwm.c
+index e5efb6a2..4a6632f3 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -36,6 +36,7 @@
+ #include <X11/Xlib.h>
+ #include <X11/Xproto.h>
+ #include <X11/Xutil.h>
++#include <X11/XKBlib.h>
+ #ifdef XINERAMA
+ #include <X11/extensions/Xinerama.h>
+ #endif /* XINERAMA */
+@@ -234,7 +235,8 @@ static int xerror(Display *dpy, XErrorEvent *ee);
+ static int xerrordummy(Display *dpy, XErrorEvent *ee);
+ static int xerrorstart(Display *dpy, XErrorEvent *ee);
+ static void zoom(const Arg *arg);
+ static void autostart_exec(void);
++static void setxkbgroup(const Arg *arg);
+ 
+ /* variables */
+ static const char broken[] = "broken";
+@@ -2122,6 +2124,21 @@ zoom(const Arg *arg)
+ 	pop(c);
+ }
+ 
++void
++setxkbgroup(const Arg *arg) {
++	static int hasxkb = -1;
++	if (hasxkb < 0) {
++		int major = XkbMajorVersion;
++		int minor = XkbMinorVersion;
++		hasxkb = XkbQueryExtension(dpy, NULL, NULL, NULL, &major, &minor);
++	}
++	if (hasxkb > 0) {
++		if (arg != NULL && arg->ui < 4) {
++			XkbLockGroup(dpy, XkbUseCoreKbd, arg->ui);
++		}
++	}
++}
++
+ int
+ main(int argc, char *argv[])
+ {
+-- 
+2.39.2
+

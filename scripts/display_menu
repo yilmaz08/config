@@ -1,27 +1,27 @@
 #!/bin/bash
 
-options="Solo\nLeft\nRight\nMirror\nAuto"
+roficonfig=~/.config/rofi/display.rasi
 
-choice=$(echo -e "$options" | rofi -dmenu -p "Display Menu")
+# Options
+Solo="󰌢"
+Dual="󰍹"
+Mirror="󰍺"
+Auto="󰁨"
+options="$Solo\n$Dual\n$Mirror\n$Auto"
 
-case $choice in
-    "Solo")
+choice=$(echo -e "$options" | rofi -config $roficonfig -dmenu -p "Display Menu")
+
+case $choice in 
+	$Solo)
 		displayctl solo
-        ;;
-    "Left")
-        displayctl left
-        ;;
-    "Right")
-        displayctl right
-        ;;
-	"Mirror")
+		;;
+	$Dual)
+		displayctl left
+		;;
+	$Mirror)
 		displayctl mirror
 		;;
-    "Auto")
-        displayctl auto
-        ;;
-    *)
-        exit 1
-        ;;
+	$Auto)
+		displayctl auto
+		;;
 esac
-

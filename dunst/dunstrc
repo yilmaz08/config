@@ -1,67 +1,26 @@
 [global]
-follow = mouse
-geometry = "300x30-5+30"
-indicate_hidden = yes
-shrink = no
-transparency = 0
-notification_height = 0
-separator_height = 2
-padding = 8
-horizontal_padding = 8
-frame_width = 1
-sort = yes
-idle_threshold = 0
-frame_color = "#7aa2f7"
-separator_color= frame
+	follow = none
 
-font = JetBrainsMono Nerd Font 10
-line-height = 0
-markup = full
-# Message format:
-# %a - appname
-# %s - summary
-# %b - body
-# %i - iconname (with path)
-# %I - iconname (without path)
-# %p - progress value (if set)
-# %n - progress value no extra characters
-# %% - literal %
-# format = "<b>%a</b>\n<i>%s</i>\n%b"
-alignment = center
-vertical_alignment = center
-show_age_threshold = -1
-word_wrap = no
-ellipsize = middle
-ignore_newline = no
-stack_duplicates = true
-hide_duplicate_count = false
-show_indicators = no
+	width = (150, 300)
+	height = (30, 150)
+	offset = (8, 36)
+	origin = top-right
 
-icon_position = off
+	gap_size = 4
 
-history_length = 20
+	alignment = center
 
-always_run_script = true
-title = Dunst
-class = Dunst
-startup_notification = false
-verbosity = mesg
-corner_radius = 15
-ignore_dbusclose = false
+	frame_width = 2
+	frame_color = "#7aa2f7"
+	separator_color = frame
 
-mouse_left_click = close_current
-mouse_middle_click = do_action
-mouse_right_click = do_action
+	corner_radius = 12
 
-[urgency_low]
-background = "#1a1b26"
-foreground = "#a9b1d6"
+	font = "JetBrainsMono Nerd Font 10"
 
-[urgency_normal]
-background = "#1a1b26"
-foreground = "#a9b1d6"
+	background = "#1a1b26"
+	foreground = "#a9b1d6"
 
 [urgency_critical]
-background = "#1a1b26"
-foreground = "#a9b1d6"
-frame_color = "#f7768e"
+	foreground = "#a9b1d6"
+	frame_color = "#f7768e"

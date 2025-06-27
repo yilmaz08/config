@@ -1,12 +1,5 @@
 #!/bin/bash
 
-# Solo -> Mirror
-# Solo -> Dual
-# Mirror -> Dual
-# Mirror -> Solo
-# Dual -> Mirror (WARNING: moves 3 workspaces)
-# Dual -> Solo (ERROR: what?)
-
 MODE="$1"
 
 if [ -z "$MODE" ]; then
@@ -44,8 +37,5 @@ case "$MODE" in
 		exit 1
     ;;
 esac
-
-bspc monitor $INTERNAL -d 1 2 3 4 5 6 7 8 9 10
-bspc monitor $EXTERNAL -d I II III
 
 xwallpaper --maximize ~/.config/wallpaper # reload wallpaper (sometimes needed)
